@@ -1,13 +1,17 @@
-import { useState } from "react";
+import { useRef, useState } from "react";
 
 export const HiddenSearchBox = () => {
   const [active, setActive] = useState<boolean>(false);
+  const ref = useRef<HTMLInputElement|null>(null);
+
   const onClick = () => {
     setActive(!active);
+    ref.current?.focus();
   }
   return (
     <div className="flex justify-center">
       <input
+        ref={ref}
         type="text" 
         name="" id="" 
         className={`w-0 transition-all outline-none ${active ? "w-36 py-1 px-3 border border-black" : ""}`}
