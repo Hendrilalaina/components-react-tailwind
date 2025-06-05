@@ -15,7 +15,7 @@ export const HiddenSearchBox = () => {
         type="text"
         name=""
         id=""
-        className={`w-0 transition-all outline-none ${active ? "w-36 py-1 px-3 border border-black" : ""}`}
+        className={`w-0 transition-all rounded-bl-lg rounded-tl-lg outline-none ${active ? "w-36 py-1 px-3 border border-black" : ""}`}
         placeholder="Search..."
       />
       <button
