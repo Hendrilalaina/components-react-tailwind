@@ -2,12 +2,14 @@ import { useState } from "react";
 import "./App.css";
 import { HiddenSearchBox } from "./components/HiddenSearch/HiddenSearchBox";
 import { QRCodeGenerator } from "./components/QRCode-Generator/QRCode-Generator";
+import { TextToSpeak } from "./components/Text-to-Speak/TextToSpeak";
 
 const App = () => {
   const [index, setIndex] = useState(0);
   const components = [
     { label: "Hidden Searh Box", component: <HiddenSearchBox /> },
     { label: "QRCode Generator", component: <QRCodeGenerator /> },
+    { label: "Text to Speak", component: <TextToSpeak /> },
   ];
   return (
     <div className="flex h-full">
