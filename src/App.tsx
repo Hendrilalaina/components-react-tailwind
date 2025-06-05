@@ -14,11 +14,17 @@ const App = () => {
   return (
     <div className="flex h-full">
       <aside className="flex h-[100vh] overflow-auto flex-col items-start gap-3 p-3">
-        {components.map((item, id) => (
-          <button key={id} className="button" onClick={() => setIndex(id)}>
-            {item.label}
-          </button>
-        ))}
+        <ul>
+          {components.map((item, id) => (
+            <li
+              key={id}
+              className="button cursor-pointer p-3 border border-fuchsia-300 rounded-lg mb-1"
+              onClick={() => setIndex(id)}
+            >
+              {item.label}
+            </li>
+          ))}
+        </ul>
       </aside>
       <main className="flex-1 flex border-l-2 justify-center items-center">
         {components[index].component}
