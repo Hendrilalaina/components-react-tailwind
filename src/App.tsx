@@ -4,6 +4,7 @@ import { HiddenSearchBox } from "./components/HiddenSearch/HiddenSearchBox";
 import { QRCodeGenerator } from "./components/QRCode-Generator/QRCode-Generator";
 import { TextToSpeak } from "./components/Text-to-Speak/TextToSpeak";
 import { CircularProgress } from "./components/Circular-Progress/CircularProgress";
+import { MatCaptcha } from "./components/Math-Captcha/MathCaptcha";
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -12,6 +13,7 @@ const App = () => {
     { label: "QRCode Generator", component: <QRCodeGenerator /> },
     { label: "Text to Speak", component: <TextToSpeak /> },
     { label: "Circular Progress", component: <CircularProgress /> },
+    { label: "Math Captcha", component: <MatCaptcha /> },
   ];
   return (
     <div className="flex h-full">
