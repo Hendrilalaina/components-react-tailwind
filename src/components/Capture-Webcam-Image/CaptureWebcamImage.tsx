@@ -19,6 +19,16 @@ export const CaptureWebcamImage = () => {
       })
       .catch((error) => console.error("Error accessing webcam", error));
   };
+
+  const stopWebcam = () => {
+    if (videoRef.current && videoRef.current.srcObject) {
+      const streams = videoRef.current.srcObject as MediaStream;
+      streams.getTracks().forEach((track) => track.stop());
+      videoRef.current.srcObject = null;
+      setWebcamOnline(false);
+    }
+  };
+
   return (
     <div>
       <video
@@ -30,7 +40,7 @@ export const CaptureWebcamImage = () => {
         {isWebcamOnline ? (
           <>
             <button>Capture Image</button>
-            <button>Stop Webcam</button>
+            <button onClick={stopWebcam}>Stop Webcam</button>
           </>
         ) : (
           <button onClick={startWebcam}>Start Webcam</button>
