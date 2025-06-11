@@ -29,17 +29,35 @@ export const CaptureWebcamImage = () => {
     }
   };
 
+  const captureImage = () => {
+    const canvas = canvasRef.current;
+    const video = videoRef.current;
+    const downloadLink = downloadLinkRef.current;
+
+    if (!canvas || !video || !downloadLink) return;
+
+    const context = canvas.getContext("2d");
+
+    if (context) {
+      context.drawImage(video, 0, 0, canvas.width, canvas.height);
+      const image = canvas.toDataURL("image/png");
+      downloadLink.href = image;
+      downloadLink.download = "capture-image.png";
+      downloadLink.click();
+    }
+  };
+
   return (
     <div>
       <video
         ref={videoRef}
-        className={`w-[640px] h-[480px] ${isWebcamOnline} ? "block" : "hidden"`}
+        className={`w-[640px] h-[480px] mb-2 ${isWebcamOnline} ? "block" : "hidden"`}
         autoPlay
       ></video>
       <div className="flex justify-center gap-4">
         {isWebcamOnline ? (
           <>
-            <button>Capture Image</button>
+            <button onClick={captureImage}>Capture Image</button>
             <button onClick={stopWebcam}>Stop Webcam</button>
           </>
         ) : (
@@ -53,11 +71,7 @@ export const CaptureWebcamImage = () => {
         height="480"
         className="hidden"
       ></canvas>
-      <a
-        id="downloadLink"
-        ref={downloadLinkRef}
-        download="capture-image.png"
-      ></a>
+      <a id="downloadLink" ref={downloadLinkRef}></a>
     </div>
   );
 };
