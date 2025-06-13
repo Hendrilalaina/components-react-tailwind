@@ -7,6 +7,7 @@ import { CircularProgress } from "./components/Circular-Progress/CircularProgres
 import { MatCaptcha } from "./components/Math-Captcha/MathCaptcha";
 import { DarkMode } from "./components/Dark-Mode/DarkMode";
 import { CaptureWebcamImage } from "./components/Capture-Webcam-Image/CaptureWebcamImage";
+import { CaptureScreen } from "./components/Capture-Screen/CaptureScreen";
 
 const App = () => {
   const [index, setIndex] = useState(0);
@@ -18,6 +19,7 @@ const App = () => {
     { label: "Math Captcha", component: <MatCaptcha /> },
     { label: "Toggle Mode", component: <DarkMode /> },
     { label: "Capture Webcam Image", component: <CaptureWebcamImage /> },
+    { label: "Capture Screen", component: <CaptureScreen /> },
   ];
   return (
     <div className="flex h-full">
